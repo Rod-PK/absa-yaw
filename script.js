@@ -1,42 +1,32 @@
-// Mobile Menu Variables
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const dropdowns = document.querySelectorAll('.dropdown');
 
-// Mobile Menu Toggle Function
-menuIcon.onclick = () => {
-    navbar.classList.toggle('active');
-    // Optional: Change menu icon when clicked
-    menuIcon.classList.toggle('bx-x');
-};
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menuIcon.contains(e.target) && !navbar.contains(e.target)) {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
+// Toggle dropdowns on mobile
+dropdowns.forEach(dropdown => {
+  const anchor = dropdown.querySelector('a');
+
+  anchor.addEventListener('click', e => {
+    // Only toggle on small screens
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
     }
+  });
 });
 
-// Close menu when clicking a link
-document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-    });
+// Optional: close mobile menu if window resized to desktop size
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    navLinks.classList.remove('open');
+    dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
+  }
 });
 
-// Header Scroll Effect
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector("header");
-    // Add/remove classes based on scroll position
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-        navbar.classList.remove("transparent");
-    } else {
-        navbar.classList.add("transparent");
-        navbar.classList.remove("scrolled");
-    }
-});
 
 // DOM Content Loaded Event Handler
 document.addEventListener("DOMContentLoaded", () => {
