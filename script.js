@@ -114,3 +114,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Product page: Image thumbnail switching
+if (document.querySelector('.product-images')) {
+    document.addEventListener('DOMContentLoaded', function () {
+        const mainImage = document.getElementById('mainProductImage');
+        const thumbnails = document.querySelectorAll('.product-thumbnails .thumbnail');
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function () {
+                // Change main image src
+                mainImage.src = this.src;
+                // Remove active from all, add to clicked
+                thumbnails.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Price option selection styling
+    document.querySelectorAll('.product-price-options input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            document.querySelectorAll('.product-price-options .price-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            this.closest('.price-option').classList.add('selected');
+        });
+    });
+});
