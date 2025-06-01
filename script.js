@@ -3,28 +3,28 @@ const navLinks = document.getElementById('nav-links');
 const dropdowns = document.querySelectorAll('.dropdown');
 
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+    navLinks.classList.toggle('open');
 });
 
 // Toggle dropdowns on mobile
 dropdowns.forEach(dropdown => {
-  const anchor = dropdown.querySelector('a');
+    const anchor = dropdown.querySelector('a');
 
-  anchor.addEventListener('click', e => {
-    // Only toggle on small screens
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
-    }
-  });
+    anchor.addEventListener('click', e => {
+        // Only toggle on small screens
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('open');
+        }
+    });
 });
 
 // Optional: close mobile menu if window resized to desktop size
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navLinks.classList.remove('open');
-    dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
-  }
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('open');
+        dropdowns.forEach(dropdown => dropdown.classList.remove('open'));
+    }
 });
 
 
@@ -143,3 +143,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Function to update the main image when a thumbnail is clicked
+function updateMainImage(event) {
+    const mainImage = document.getElementById('mainProductImage');
+    const clickedThumbnail = event.target;
+
+    // Update the main image source with the clicked thumbnail's source
+    if (clickedThumbnail.tagName === 'IMG') {
+        mainImage.src = clickedThumbnail.src;
+    }
+}
+
+// Add event listeners to all thumbnails
+const thumbnails = document.querySelectorAll('.thumbnail');
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', updateMainImage);
+});
+
