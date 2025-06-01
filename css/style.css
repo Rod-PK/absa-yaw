@@ -134,6 +134,29 @@ nav.scrolled {
     box-shadow: 0 2px 10px rgba(22, 22, 22, 0.896);
 }
 
+.nav-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.nav-icon a {
+    color: #f1f1f1;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-icon a:hover {
+    color: var(--second-color);
+    transform: translateX(5px);
+}
+
+.nav-icon i {
+    margin-right: 8px;
+    color: var(--second-color);
+}
+
 .logo {
     font-family: "Lobster Two", sans-serif;
     font-weight: bold;
@@ -152,7 +175,7 @@ nav.scrolled {
 .nav-links {
     font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     font-style: normal;
     display: flex;
@@ -1023,6 +1046,40 @@ a:hover {
 }
 
 .footer-box p {
+    margin-bottom: 1rem;
+    color: #f1f1f1;
+    line-height: 1.8;
+}
+
+.footer-box-one {
+    padding: 1rem;
+}
+
+.footer-box-one h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #fe9a18;
+    font-family: "Lobster Two", sans-serif;
+    font-weight: bold;
+    font-size: 1.7rem;
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+
+.footer-box-one h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--second-color);
+}
+
+.footer-box-one p {
     margin-bottom: 1rem;
     color: #f1f1f1;
     line-height: 1.8;
