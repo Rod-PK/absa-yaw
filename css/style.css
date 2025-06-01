@@ -40,7 +40,7 @@ body {
     font-family: 'Oswald', sans-serif;
     background: linear-gradient(#f0edeb);
     color: var(--main-color);
-    padding-top: 145px;
+    padding-top: 135px;
     line-height: 25px;
     font-size: 16px;
     letter-spacing: 1px;
@@ -251,13 +251,43 @@ a:hover {
     overflow: hidden;
 }
 
+.home-left::before,
+.home-right-top::before,
+.home-right-bottom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.home-left::before {
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748615849/photo-1745483733459-b96c3e27913e_lifudd.jpg');
+}
+.home-right-top::before {
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748616116/nick-fewings-gpP-OkJ5BbI-unsplash_h9awta.jpg');
+}
+.home-right-bottom::before {
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748616418/peter-werkman-d6oEre5qMkQ-unsplash_f5anlc.jpg');
+}
+
+.home-left:hover::before,
+.home-right-top:hover::before,
+.home-right-bottom:hover::before {
+    transform: scale(1.12);
+}
+
 .home-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.27);
     /* Adjust opacity as needed */
     z-index: 1;
 }
@@ -276,11 +306,15 @@ a:hover {
 
 .home-left-content h2,
 .home-right-content h2 {
+    padding-bottom: 30px;
+    font-size: 3rem;
+    font-weight: 400;
     margin-bottom: 12px;
 }
 
 .home-left-content h1,
 .home-right-content h1 {
+    font-weight: 400;
     margin-bottom: 16px;
 }
 
@@ -702,11 +736,24 @@ a:hover {
 }
 
 .products-heading h1 {
-    font-size: 2.2rem;
-    font-family: 'Oswald', sans-serif;
-    color: #555;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #464646;
+    position: relative;
     display: inline-block;
-    padding-bottom: 6px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.products-heading h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    margin-bottom: -5px;
 }
 
 .products-grid {
@@ -757,16 +804,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.products-heading h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    color: #464646;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 20px;
-    padding-top: 10px;
 }
 
 .product-info h2 {
@@ -858,10 +895,10 @@ a:hover {
 }
 
 .about-hero-content h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
+    font-weight: 400;
     font-family: 'Oswald', sans-serif;
     margin-bottom: 18px;
-    letter-spacing: 2px;
 }
 
 .about-hero-content p {
@@ -906,8 +943,9 @@ a:hover {
 }
 
 .about-split-content h2 {
-    font-size: 2.2rem;
+    font-size: 3rem;
     margin-bottom: 18px;
+    font-weight: 400;
     font-family: 'Oswald', sans-serif;
 }
 
@@ -937,14 +975,14 @@ a:hover {
 
 .footer {
     background: #374135;
-    padding: 60px 10% 30px;
+    padding: 40px 5% 20px;
     color: #fff;
 }
 
 .footer-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 4rem;
     margin-bottom: 2rem;
 }
 
