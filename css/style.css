@@ -857,10 +857,7 @@ a:hover {
 
 .about-us {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    margin-bottom: 30px;
+    box-sizing: border-box;
 }
 
 .about-hero {
@@ -916,29 +913,36 @@ a:hover {
 .about-split {
     display: flex;
     width: 100%;
-    min-height: 50vh;
+    height: 67vh;
+    gap: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .about-split-image {
-    flex: 1 1 50%;
-    max-width: 50vw;
-    min-width: 320px;
-    height: 50%;
+    flex: 0 0 50%;
+    /* max-width: 50%;
+    min-width: 320px; */
     overflow: hidden;
     display: flex;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    padding: 0;
 }
 
 .about-split-image img {
-    width: 100%;
+    width: 120%;
     height: 100%;
-    object-fit: cover;
     display: block;
+    margin: 0;
+    padding: 0;
 }
 
 .about-split-content {
-    flex: 1 1 50%;
-    min-width: 320px;
-    max-width: 50vw;
+    flex: 0 0 50%;
+    /* max-width: 70%; */
+    /* min-width: 320px; */
     background: #374135;
     color: #fff;
     display: flex;
@@ -946,7 +950,10 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 60px 40px;
+    padding: 60px;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
 }
 
 .about-split-content h2 {
@@ -1777,5 +1784,22 @@ section {
     /* Rotate arrow when dropdown is open on mobile */
     .dropdown.open>a .arrow {
         transform: rotate(180deg);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-split {
+        flex-direction: column;
+    }
+
+    .about-split-image,
+    .about-split-content {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .about-split-content {
+        padding: 30px 0;
     }
 }
