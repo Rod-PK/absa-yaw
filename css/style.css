@@ -266,14 +266,17 @@ a:hover {
 }
 
 .home-left::before {
-    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748615849/photo-1745483733459-b96c3e27913e_lifudd.jpg');
-}
-.home-right-top::before {
-    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748616116/nick-fewings-gpP-OkJ5BbI-unsplash_h9awta.jpg');
-}
-.home-right-bottom::before {
-    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1748616418/peter-werkman-d6oEre5qMkQ-unsplash_f5anlc.jpg');
-}
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/w_1200,f_auto,q_auto/photo-1745483733459-b96c3e27913e_lifudd.jpg');
+  }
+  
+  .home-right-top::before {
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/w_800,f_auto,q_auto/nick-fewings-gpP-OkJ5BbI-unsplash_h9awta.jpg');
+  }
+  
+  .home-right-bottom::before {
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/w_800,f_auto,q_auto/peter-werkman-d6oEre5qMkQ-unsplash_f5anlc.jpg');
+  }
+  
 
 .home-left:hover::before,
 .home-right-top:hover::before,
@@ -654,52 +657,48 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    height: 65vh;
-}
-
-.why-container-one {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-    width: 100%;
-    height: 50vh;
+    height: 65vh; /* Allow content height to grow naturally */
 }
 
 .why-box {
     position: relative;
-    min-height: 380px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
     transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 380px;
 }
 
-.why-box::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--bg);
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 0;
-    will-change: transform;
-}
-
-.why-box:hover::before {
+.why-box:hover .why-bg-img {
     transform: scale(1.08);
 }
 
-.why-box .why-overlay {
+.why-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.why-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.why-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
-.why-box .why-content {
+.why-content {
     position: relative;
     z-index: 2;
     color: #fff;
@@ -723,6 +722,14 @@ a:hover {
     font-size: 1.1rem;
     margin-bottom: 24px;
     font-weight: 400;
+}
+
+.why-container-one {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: auto; /* Allow content height to grow naturally */
+    gap: 1rem;
 }
 
 .products-showcase {
