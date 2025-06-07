@@ -1,0 +1,112 @@
+.home-one {
+    width: 100%;
+    min-height: 40vh;
+    padding: 0 10%;
+    background-image: url('https://res.cloudinary.com/dzzqbx7p2/image/upload/v1749250036/photo-1506365069540-904bcc762636_bahetf.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-text {
+    flex: 1 1 17rem;
+}
+
+.home-img {
+    flex: 1 1 17rem;
+}
+
+.home-text span {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--second-color);
+}
+
+/* Main Content Sections */
+main {
+    background-color: white;
+}
+
+.hero-section {
+    text-align: center;
+    max-width: 1200px; /* Set a max-width for the main content */
+    margin: 20px auto; /* Center the main content with some vertical margin */
+    padding: 0 20px; /* Add horizontal padding */
+    margin-bottom: 40px; /* Space below the hero section */
+    padding-top: 5%;
+}
+
+.hero-section h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 30px; /* Adjust heading size */
+    margin-bottom: 10px;
+    color: #2f2e2e;
+}
+
+.hero-section p {
+    font-size: 0.8rem;
+    font-family: 'Monserrat', sans-serif;
+    color: #555; /* Adjust text color */
+}
+
+.content-section {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 40px; /* Space between image and text container */
+    padding-top: 20px;
+    padding-bottom: 5%;
+    margin: auto;
+    justify-content: center;
+    width: 70%;
+}
+
+.image-container {
+    flex: 1; /* Allow image container to grow */
+    position: relative; /* Needed for positioning overlay text */
+}
+
+.image-container img {
+    display: block; /* Remove extra space below image */
+    max-width: 100%;
+    height: 80vh;
+}
+
+.image-overlay-text {
+    position: absolute;
+    bottom: 20px; /* Adjust position from bottom */
+    left: 20px; /* Adjust position from left */
+    color: white; /* Text color for overlay */
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold;
+}
+
+.image-overlay-text h2 {
+    margin: 0;
+    color: white; /* Ensure heading color is white */
+    font-size: 24px; /* Adjust font size */
+}
+
+.text-container {
+    flex: 1; /* Allow text container to grow */
+}
+
+.text-container h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 30px; /* Adjust heading size */
+    margin-bottom: 10px;
+    color: #2f2e2e;
+}
+
+.text-container p {
+    font-size: 0.8rem;
+    font-family: 'Monserrat', sans-serif;
+    color: #555; /* Adjust text color */
+    line-height: 26px;
+}
